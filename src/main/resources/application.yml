@@ -1,0 +1,30 @@
+spring:
+  application:
+    name: spring-boot-ScvQ
+  profiles:
+    active: dev
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql:///demo
+    username: root
+    password: root
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  mvc:
+    view:
+      prefix: /WEB-INF/view
+      suffix: .jsp
+  jackson:
+    serialization:
+         indent-output: false
+  http:
+    multipart:
+      enabled: true
+      file-size-threshold: 0
+      max-file-size: 100Mb
+      max-request-size: 100Mb
+      location: #
+server:
+  port: 8080
