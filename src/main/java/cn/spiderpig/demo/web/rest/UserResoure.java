@@ -49,8 +49,8 @@ public class UserResoure {
     }
 
     @GetMapping(value = "/delById/{id}")
-    public void delById(@PathVariable("id") Integer id) {
-        userService.delById(id);
+    public void deleteById(@PathVariable("id") Integer id) {
+        userService.deleteById(id);
     }
 
     @PutMapping(value = "/updateUser/{id}")

@@ -6,7 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import cn.spiderpig.demo.domain.ErrorCodeEnum;
 import cn.spiderpig.demo.domain.User;
+import cn.spiderpig.demo.exception.UserException;
 import cn.spiderpig.demo.repository.UserRepository;
 import cn.spiderpig.demo.service.UserService;
 
@@ -24,6 +26,11 @@ public class UserServcieImpl implements UserService {
 
     @Override
     public User addUser(User user) {
+        
+        if("admin".equals(user.getUsername())){
+            throw new UserException(ErrorCodeEnum.SUCCESS);
+        }
+        
         return userRepository.save(user);
     }
 
@@ -33,7 +40,7 @@ public class UserServcieImpl implements UserService {
     }
 
     @Override
-    public void delById(Integer id) {
+    public void deleteById(Integer id) {
         userRepository.delete(id);
     }
 

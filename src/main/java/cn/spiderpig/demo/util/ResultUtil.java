@@ -1,5 +1,6 @@
 package cn.spiderpig.demo.util;
 
+import cn.spiderpig.demo.domain.ErrorCodeEnum;
 import cn.spiderpig.demo.domain.Result;
 
 public class ResultUtil {
@@ -20,6 +21,13 @@ public class ResultUtil {
         Result<Object> result = new Result<Object>();
         result.setCode(code);
         result.setMsg(msg);
+        return result;
+    }
+
+    public static Result error(ErrorCodeEnum errorCodeEnum) {
+        Result<Object> result = new Result<Object>();
+        result.setCode(errorCodeEnum.getCode());
+        result.setMsg(errorCodeEnum.getMsg());
         return result;
     }
 

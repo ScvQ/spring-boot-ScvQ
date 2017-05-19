@@ -18,7 +18,7 @@ spring:
       suffix: .jsp
   jackson:
     serialization:
-         indent-output: true
+         indent-output: false
   http:
     multipart:
       enabled: true

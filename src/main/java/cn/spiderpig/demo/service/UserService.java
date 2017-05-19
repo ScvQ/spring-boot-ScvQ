@@ -12,7 +12,7 @@ public interface UserService {
 
     public List<User> getAllUser();
 
-    public void delById(Integer id);
+    public void deleteById(Integer id);
 
     public User updateUser(User user);
 
