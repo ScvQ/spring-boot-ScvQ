@@ -6,7 +6,9 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -17,12 +19,21 @@ import cn.spiderpig.demo.domain.Result;
 import cn.spiderpig.demo.domain.User;
 import cn.spiderpig.demo.service.UserService;
 import cn.spiderpig.demo.util.ResultUtil;
+import cn.spiderpig.demo.validator.UserValidator;
 
 @RestController
 public class UserResoure {
 
     @Autowired
     private UserService userService;
+    
+    @Autowired
+    private UserValidator userValidator;
+    
+    @InitBinder
+    protected void initBinder(WebDataBinder binder){
+        binder.addValidators(userValidator);
+    }
 
     @GetMapping(value = "/getOne/{id}")
     public User getUserById(@PathVariable("id") Integer id) {

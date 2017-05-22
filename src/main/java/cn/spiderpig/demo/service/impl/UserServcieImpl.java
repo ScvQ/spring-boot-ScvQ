@@ -28,7 +28,7 @@ public class UserServcieImpl implements UserService {
     public User addUser(User user) {
         
         if("admin".equals(user.getUsername())){
-            throw new UserException(ErrorCodeEnum.SUCCESS);
+            throw new UserException(ErrorCodeEnum.UNKOWN_ERROR);
         }
         
         return userRepository.save(user);
