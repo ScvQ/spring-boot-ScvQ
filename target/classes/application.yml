@@ -5,7 +5,7 @@ spring:
     active: dev
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql:///demo
+    url: jdbc:mysql:///boot?characterEncoding=utf8&useSSL=true
     username: root
     password: root
   jpa:
@@ -16,10 +16,10 @@ spring:
     view:
       prefix: /WEB-INF/view
       suffix: .jsp
-  jackson:
+  jackson:  #jackson
     serialization:
          indent-output: false
-  http:
+  http: #开启上传文件
     multipart:
       enabled: true
       file-size-threshold: 0
@@ -28,3 +28,5 @@ spring:
       location: #
 server:
   port: 8080
+banner:
+  location: banner/banner.txt
